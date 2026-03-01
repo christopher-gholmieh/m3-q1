@@ -13,6 +13,9 @@ from enum import Enum
 # Secrets:
 import secrets
 
+# Random:
+import random
+
 
 # Constants:
 BELOW_HIGH_SCHOOL_STANDARD_DEVIATION: float = 2_359.65
@@ -213,20 +216,35 @@ def calculate_expenses(race: Race, education: Education, salary: int) -> str:
         str(expenses),str(salary-expenses)]) + "\n"
 
 
-
 # Program:
+# with open("expenses_data.csv", "w") as file:
+#     file.write("race_is_black,is_college,is_hs,is_lt_15000,bt_15k_30k,bt_30k_39k,bt_40k_49k,bt_50k_69k,bt_70k_99k,bt_100k_149k,bt_150k_199k,expense,disposable_income\n")
+
+#     for race in [Race.BLACK, Race.OTHER]:
+#         for education in [Education.COLLEGE, Education.HIGH_SCHOOL, Education.BELOW_HIGH_SCHOOL]:
+#             for iteration in range(3):
+#                 file.write(calculate_expenses(race, education, 10_000))
+#                 file.write(calculate_expenses(race, education, 20_000))
+#                 file.write(calculate_expenses(race, education, 35_000))
+#                 file.write(calculate_expenses(race, education, 45_000))
+#                 file.write(calculate_expenses(race, education, 60_000))
+#                 file.write(calculate_expenses(race, education, 75_000))
+#                 file.write(calculate_expenses(race, education, 120_000))
+#                 file.write(calculate_expenses(race, education, 180_000))
+#                 file.write(calculate_expenses(race, education, 210_000))
+
 with open("expenses_data.csv", "w") as file:
     file.write("race_is_black,is_college,is_hs,is_lt_15000,bt_15k_30k,bt_30k_39k,bt_40k_49k,bt_50k_69k,bt_70k_99k,bt_100k_149k,bt_150k_199k,expense,disposable_income\n")
 
     for race in [Race.BLACK, Race.OTHER]:
         for education in [Education.COLLEGE, Education.HIGH_SCHOOL, Education.BELOW_HIGH_SCHOOL]:
             for iteration in range(1000):
-                file.write(calculate_expenses(race, education, 10_000))
-                file.write(calculate_expenses(race, education, 20_000))
-                file.write(calculate_expenses(race, education, 35_000))
-                file.write(calculate_expenses(race, education, 45_000))
-                file.write(calculate_expenses(race, education, 60_000))
-                file.write(calculate_expenses(race, education, 75_000))
-                file.write(calculate_expenses(race, education, 120_000))
-                file.write(calculate_expenses(race, education, 180_000))
-                file.write(calculate_expenses(race, education, 210_000))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
+                file.write(calculate_expenses(race, education, np.random.randint(14_999, 201_000)))
