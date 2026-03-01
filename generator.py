@@ -210,13 +210,13 @@ def calculate_expenses(race: Race, education: Education, salary: int) -> str:
         ("1" if level == "70_lt_salary_lt_99k" else "0"),
         ("1" if level == "100k_salary_149k" else "0"),
         ("1" if level ==  "150k_lt_salary_lt_199k" else "0"),
-        str(expenses)]) + "\n"
+        str(expenses),str(salary-expenses)]) + "\n"
 
 
 
 # Program:
 with open("expenses_data.csv", "w") as file:
-    file.write("race_is_black,is_college,is_hs,is_lt_15000,bt_15k_30k,bt_30k_39k,bt_40k_49k,bt_50k_69k,bt_70k_99k,bt_100k_149k,bt_150k_199k,expense\n")
+    file.write("race_is_black,is_college,is_hs,is_lt_15000,bt_15k_30k,bt_30k_39k,bt_40k_49k,bt_50k_69k,bt_70k_99k,bt_100k_149k,bt_150k_199k,expense,disposable_income\n")
 
     for race in [Race.BLACK, Race.OTHER]:
         for education in [Education.COLLEGE, Education.HIGH_SCHOOL, Education.BELOW_HIGH_SCHOOL]:
