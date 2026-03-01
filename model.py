@@ -55,3 +55,13 @@ print(f"[*] Predictions on test set: {y_prediction}")
 print(f"[+] Mean absolute error: {mean_absolute_err}")
 print(f"[+] Mean square error: {mean_square_err}")
 print(f"[+] Root square error: {root_square_err}")
+
+# Variables (Assignment):
+# Target:
+mean_target = np.mean(y_test)
+
+# Error:
+percent_error = 100 * mean_absolute_err / mean_target
+
+# Output:
+print("Percent error:", percent_error)
